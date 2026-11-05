@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S. BALASUBRAMANIAN | Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<canvas id="lightning"></canvas>
+<div class="stars"></div>
+<div class="aurora aurora1"></div>
+<div class="aurora aurora2"></div>
+
+<!-- OLD QR CARD INTRO - PRESERVED -->
+<section id="intro">
+
+    <div class="intro-title">DIGITAL IDENTITY SYSTEM</div>
+
+    <div class="atm-card">
+
+        <div class="card-top">
+            <strong>SB.</strong>
+            <span>SECURE IDENTITY</span>
+        </div>
+
+        <div class="chip"></div>
+
+        <div class="qr-area">
+            <div id="qrcode"></div>
+            <div class="scan-line"></div>
+        </div>
+
+        <div class="card-bottom">
+            <span>PERSONAL DIGITAL CARD</span>
+            <span>2026</span>
+        </div>
+
+        <div class="card-shine"></div>
+
+    </div>
+
+    <div id="scanMessage">SCANNING...</div>
+
+</section>
+
+
+<!-- MAIN WEBSITE -->
+<main id="portfolio">
+
+<header class="navbar">
+
+    <div class="logo">S<span>.</span></div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#achievements">ACHIEVEMENTS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="online">
+        <span></span> ONLINE
+    </div>
+
+</header>
+
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-left">
+
+        <div class="welcome">
+            <span></span> WELCOME TO MY DIGITAL WORLD
+        </div>
+
+        <!-- INITIAL S REVEAL -->
+        <div class="initial-animation" id="initialAnimation">
+            <span id="letterS">S</span>
+        </div>
+
+        <!-- FULL NAME BELOW INITIAL -->
+        <h1 class="full-name" id="fullName"></h1>
+
+        <div class="name-line"></div>
+
+        <h2 class="role">
+            B.TECH INFORMATION TECHNOLOGY
+        </h2>
+
+        <p class="description">
+            Aspiring Web Developer | Technology Enthusiast |
+            Future Innovator
+        </p>
+
+        <div class="buttons">
+            <a href="#about" class="primary-btn">EXPLORE MORE ↗</a>
+            <a href="#contact" class="outline-btn">CONTACT ME</a>
+        </div>
+
+        <div class="hero-tags">
+            <span>CREATIVITY</span>
+            <span>TECHNOLOGY</span>
+            <span>INNOVATION</span>
+        </div>
+
+    </div>
+
+
+    <!-- SQUARE PROFILE PHOTO WITH SQUARE ROTATING RINGS -->
+    <div class="hero-right">
+
+        <div class="square-ring square-ring-one"></div>
+        <div class="square-ring square-ring-two"></div>
+        <div class="square-ring square-ring-three"></div>
+
+        <div class="profile-frame">
+            <img src="profile.jpg" alt="S. Balasubramanian Profile Photo">
+        </div>
+
+        <div class="profile-caption">
+            <span>IDENTITY / S</span>
+            <span>01 — 2026</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="content-section" id="about">
+
+    <div class="section-title">
+        <span>01 / INTRODUCTION</span>
+        <h2>ABOUT <b>ME</b></h2>
+    </div>
+
+    <details class="info-card">
+        <summary>
+            <span class="number">01</span>
+            <strong>WHO AM I?</strong>
+            <span class="plus">＋</span>
+        </summary>
+
+        <div class="card-content">
+            I am S. Balasubramanian, a first-year
+            B.Tech Information Technology student at
+            Mount Zion College of Engineering.
+
+            I am passionate about web development,
+            programming, creativity and modern technology.
+
+            My goal is to develop innovative digital
+            experiences and become a skilled Web Developer.
+        </div>
+    </details>
+
+</section>
+
+
+<!-- SKILLS -->
+<section class="content-section" id="skills">
+
+    <div class="section-title">
+        <span>02 / MY EXPERTISE</span>
+        <h2>MY <b>SKILLS</b></h2>
+    </div>
+
+    <div class="card-grid">
+
+        <details class="info-card">
+            <summary>
+                <span class="number">01</span>
+                <strong>HTML</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                Learning website structure and modern web page creation.
+            </div>
+        </details>
+
+        <details class="info-card">
+            <summary>
+                <span class="number">02</span>
+                <strong>CSS</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                Learning responsive design, animations and visual effects.
+            </div>
+        </details>
+
+        <details class="info-card">
+            <summary>
+                <span class="number">03</span>
+                <strong>C PROGRAMMING</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                Developing programming fundamentals and logical thinking.
+            </div>
+        </details>
+
+        <details class="info-card">
+            <summary>
+                <span class="number">04</span>
+                <strong>GITHUB</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                Learning repository management and website publishing.
+            </div>
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+<section class="content-section" id="education">
+
+    <div class="section-title">
+        <span>03 / MY JOURNEY</span>
+        <h2>MY <b>EDUCATION</b></h2>
+    </div>
+
+    <details class="info-card">
+        <summary>
+            <span class="number">01</span>
+            <strong>B.TECH INFORMATION TECHNOLOGY</strong>
+            <span class="plus">＋</span>
+        </summary>
+
+        <div class="card-content">
+            <h3>Mount Zion College of Engineering</h3>
+            Course: B.Tech Information Technology<br>
+            Year: First Year<br>
+            Academic Journey: 2026 – 2030
+        </div>
+    </details>
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+<section class="content-section" id="achievements">
+
+    <div class="section-title">
+        <span>04 / MY MILESTONES</span>
+        <h2>MY <b>ACHIEVEMENTS</b></h2>
+    </div>
+
+    <details class="info-card">
+        <summary>
+            <span class="number">01</span>
+            <strong>MY LEARNING JOURNEY</strong>
+            <span class="plus">＋</span>
+        </summary>
+
+        <div class="card-content">
+            Building my foundation in Information Technology,
+            learning programming and developing my first web projects.
+        </div>
+    </details>
+
+</section>
+
+
+<!-- PROJECTS -->
+<section class="content-section" id="projects">
+
+    <div class="section-title">
+        <span>05 / MY CREATIONS</span>
+        <h2>MY <b>PROJECTS</b></h2>
+    </div>
+
+    <div class="card-grid">
+
+        <details class="info-card">
+            <summary>
+                <span class="number">01</span>
+                <strong>PERSONAL PORTFOLIO</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                A cinematic personal portfolio with interactive
+                animations and modern visual effects.
+            </div>
+        </details>
+
+        <details class="info-card">
+            <summary>
+                <span class="number">02</span>
+                <strong>QR DIGITAL CARD</strong>
+                <span class="plus">＋</span>
+            </summary>
+            <div class="card-content">
+                A digital identity card concept with QR
+                scanning animation and premium design.
+            </div>
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- FUTURE GOAL -->
+<section class="goal-section">
+
+    <span>06 / FUTURE VISION</span>
+
+    <h2>THINK BIG.</h2>
+
+    <h2 class="olive-text">CREATE THE FUTURE.</h2>
+
+    <p>
+        Imagination into Innovation.
+        Creativity into Technology.
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="content-section" id="contact">
+
+    <div class="section-title">
+        <span>07 / GET IN TOUCH</span>
+        <h2>CONTACT <b>ME</b></h2>
+    </div>
+
+    <details class="info-card">
+        <summary>
+            <span class="number">01</span>
+            <strong>MY DIGITAL IDENTITY</strong>
+            <span class="plus">＋</span>
+        </summary>
+
+        <div class="card-content">
+            Name: S. Balasubramanian<br>
+            Course: B.Tech Information Technology<br>
+            College: Mount Zion College of Engineering<br>
+            Interest: Web Development and Technology<br>
+            Email: balasubramanian11054@mountzion.ac.in<br>
+            Mobile: 9345697752
+        </div>
+    </details>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-logo">S.</div>
+
+    <p>DESIGNED WITH CREATIVITY & TECHNOLOGY</p>
+
+    <p class="copyright">
+        © 2026 S. BALASUBRAMANIAN
+    </p>
+
+</footer>
+
+</main>
+
+
+<script>
+
+/* =================================
+   OLD QR CODE SYSTEM - PRESERVED
+================================= */
+
+const websiteURL = "https://yourusername.github.io/your-portfolio/";
+
+new QRCode(document.getElementById("qrcode"), {
+    text: websiteURL,
+    width: 132,
+    height: 132,
+    colorDark: "#071307",
+    colorLight: "#baff77",
+    correctLevel: QRCode.CorrectLevel.H
+});
+
+
+/* =================================
+   LIGHTNING EFFECT
+================================= */
+
+const canvas = document.getElementById("lightning");
+const ctx = canvas.getContext("2d");
+
+let bolts = [];
+let convergenceStarted = false;
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+
+/* Create normal background lightning */
+
+function createNormalLightning() {
+
+    const startX = Math.random() * canvas.width;
+    const startY = 0;
+
+    let x = startX;
+    let y = startY;
+
+    const points = [{x, y}];
+
+    for (let i = 0; i < 13; i++) {
+        x += (Math.random() - 0.5) * 85;
+        y += 25 + Math.random() * 35;
+        points.push({x, y});
+    }
+
+    bolts.push({
+        points,
+        life: 1,
+        width: 2,
+        targetBolt: false
+    });
+}
+
+
+/* Get exact QR card centre */
+
+function getQRTarget() {
+
+    const qr = document.getElementById("qrcode");
+    const rect = qr.getBoundingClientRect();
+
+    return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + rect.height / 2
+    };
+}
+
+
+/* Create lightning which travels towards QR */
+
+function createQRLightning() {
+
+    const target = getQRTarget();
+
+    const side = Math.floor(Math.random() * 4);
+
+    let startX;
+    let startY;
+
+    if (side === 0) {
+        startX = Math.random() * canvas.width;
+        startY = 0;
+    } else if (side === 1) {
+        startX = canvas.width;
+        startY = Math.random() * canvas.height;
+    } else if (side === 2) {
+        startX = Math.random() * canvas.width;
+        startY = canvas.height;
+    } else {
+        startX = 0;
+        startY = Math.random() * canvas.height;
+    }
+
+    const points = [];
+    const segments = 15;
+
+    for (let i = 0; i <= segments; i++) {
+
+        const progress = i / segments;
+
+        const x = startX +
+            (target.x - startX) * progress +
+            (i === segments ? 0 : (Math.random() - 0.5) * 55);
+
+        const y = startY +
+            (target.y - startY) * progress +
+            (i === segments ? 0 : (Math.random() - 0.5) * 45);
+
+        points.push({x, y});
+    }
+
+    bolts.push({
+        points,
+        life: 1,
+        width: 3,
+        targetBolt: true
+    });
+}
+
+
+/* Draw lightning */
+
+function drawLightning() {
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    bolts.forEach((bolt, index) => {
+
+        ctx.beginPath();
+
+        ctx.moveTo(
+            bolt.points[0].x,
+            bolt.points[0].y
+        );
+
+        bolt.points.forEach(point => {
+            ctx.lineTo(point.x, point.y);
+        });
+
+        ctx.strokeStyle =
+            "rgba(255,255,255," + bolt.life + ")";
+
+        ctx.lineWidth = bolt.width;
+
+        ctx.shadowBlur = bolt.targetBolt ? 28 : 17;
+        ctx.shadowColor = "#c5d49a";
+
+        ctx.stroke();
+
+        ctx.shadowBlur = 0;
+
+        bolt.life -= bolt.targetBolt ? 0.045 : 0.055;
+
+        if (bolt.life <= 0) {
+            bolts.splice(index, 1);
+        }
+
+    });
+
+    requestAnimationFrame(drawLightning);
+}
+
+drawLightning();
+
+
+/* =================================
+   SCAN + LIGHTNING CONVERGENCE
+================================= */
+
+const intro = document.getElementById("intro");
+const portfolio = document.getElementById("portfolio");
+const message = document.getElementById("scanMessage");
+
+function startConvergence() {
+
+    if (convergenceStarted) return;
+
+    convergenceStarted = true;
+
+    message.textContent = "LIGHTNING ENERGY DETECTED...";
+
+    // All lightning bolts converge on the QR code.
+    for (let i = 0; i < 22; i++) {
+
+        setTimeout(() => {
+            createQRLightning();
+        }, i * 100);
+
+    }
+
+    setTimeout(() => {
+
+        message.textContent = "IDENTITY VERIFIED ✓";
+
+        intro.classList.add("verified");
+
+    }, 1500);
+
+
+    // Keep the original card visible until convergence finishes.
+    setTimeout(() => {
+
+        intro.classList.add("hide-intro");
+
+        portfolio.classList.add("show-portfolio");
+
+        canvas.classList.add("lightning-off");
+
+        startNameAnimation();
+
+    }, 2600);
+
+}
+
+
+/* Original scan timing */
+
+setTimeout(() => {
+
+    message.textContent = "SCANNING QR CODE...";
+
+}, 500);
+
+
+setTimeout(() => {
+
+    startConvergence();
+
+}, 1800);
+
+
+/* =================================
+   S INITIAL REVEAL
+================================= */
+
+function startNameAnimation() {
+
+    const initial = document.getElementById("letterS");
+
+    setTimeout(() => {
+
+        initial.classList.add("initial-visible");
+
+    }, 350);
+
+    setTimeout(() => {
+
+        revealFullName();
+
+    }, 1200);
+
+}
+
+
+/* =================================
+   FULL NAME LETTER-BY-LETTER
+================================= */
+
+function revealFullName() {
+
+    const name = "BALASUBRAMANIAN";
+
+    const target = document.getElementById("fullName");
+
+    [...name].forEach((letter, index) => {
+
+        const span = document.createElement("span");
+
+        span.textContent = letter;
+
+        target.appendChild(span);
+
+        setTimeout(() => {
+
+            span.classList.add("letter-visible");
+
+        }, index * 120);
+
+    });
+
+}
+
+
+/* =================================
+   WHITE SHINE ON TOUCH
+================================= */
+
+document.querySelectorAll(".info-card summary").forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        const card = item.parentElement;
+
+        card.classList.remove("touch-effect");
+
+        void card.offsetWidth;
+
+        card.classList.add("touch-effect");
+
+    });
+
+});
+
+
+/* =================================
+   SMOOTH NAVIGATION
+================================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if (target) {
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

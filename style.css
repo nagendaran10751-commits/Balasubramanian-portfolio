@@ -1,0 +1,959 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --green: #aaff65;
+    --olive: #a5ad72;
+    --olive-light: #dce8b5;
+    --bg: #030605;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+#lightning {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 110;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+#lightning.lightning-off {
+    opacity: 0;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .3;
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#aaff65 1px, transparent 1px);
+    background-size: 75px 75px, 125px 125px;
+}
+
+.aurora {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: .16;
+    pointer-events: none;
+}
+
+.aurora1 {
+    background: #aaff65;
+    top: 5%;
+    left: -200px;
+}
+
+.aurora2 {
+    background: #667a36;
+    bottom: 0;
+    right: -200px;
+}
+
+
+/* =================================
+   OLD QR INTRO - ORIGINAL CARD DESIGN
+================================= */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, #172c1a, #030605 75%);
+    transition: opacity .8s, visibility .8s;
+}
+
+.intro-title {
+    font-family: 'Orbitron';
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--green);
+    margin-bottom: 30px;
+    animation: pulse 1.5s infinite;
+    text-align: center;
+}
+
+
+/* SAME LANDSCAPE ATM CARD */
+
+.atm-card {
+    position: relative;
+    width: min(340px, 88vw);
+    aspect-ratio: 1.586 / 1;
+    padding: 16px;
+    border-radius: 19px;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #d5ff9d,
+        #8bdb45 45%,
+        #3d7f23
+    );
+    border: 1px solid #eaffc2;
+    box-shadow:
+        0 0 25px #8bff5555,
+        0 0 75px #36ff6655,
+        inset 0 0 25px #ffffff55;
+    animation: cardEntry .9s ease both,
+               cardFloat 3s ease-in-out infinite;
+}
+
+.card-top,
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Orbitron';
+    color: #142510;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.card-top strong {
+    font-size: 21px;
+}
+
+.chip {
+    width: 31px;
+    height: 23px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #476c32;
+    background: linear-gradient(135deg, #eaffba, #8da76a);
+}
+
+.qr-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 145px;
+    height: 145px;
+    transform: translate(-50%, -43%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#qrcode {
+    width: 140px;
+    height: 140px;
+    padding: 4px;
+    background: #baff77;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #1d4519;
+}
+
+#qrcode img,
+#qrcode canvas {
+    width: 132px !important;
+    height: 132px !important;
+}
+
+.scan-line {
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    height: 3px;
+    background: white;
+    box-shadow: 0 0 10px white, 0 0 25px #aaff65;
+    animation: scan 1.1s linear infinite;
+}
+
+.card-bottom {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 13px;
+    font-size: 7px;
+}
+
+.card-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 25%,
+        #ffffff77 45%,
+        transparent 60%
+    );
+    transform: translateX(-110%);
+    animation: shine 2.5s infinite;
+    pointer-events: none;
+}
+
+#scanMessage {
+    margin-top: 30px;
+    color: var(--green);
+    font-family: 'Orbitron';
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+#intro.verified .atm-card {
+    box-shadow:
+        0 0 40px #aaff65,
+        0 0 100px #aaff65;
+}
+
+#intro.hide-intro {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =================================
+   MAIN WEBSITE
+================================= */
+
+#portfolio {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(35px);
+    transition: 1s ease;
+}
+
+#portfolio.show-portfolio {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    min-height: 85px;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #aaff6522;
+    backdrop-filter: blur(15px);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo,
+.footer-logo {
+    font-family: 'Orbitron';
+    font-size: 27px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+nav {
+    display: flex;
+    gap: 17px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #bdcabe;
+    font-size: 9px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+    text-shadow: 0 0 15px var(--green);
+}
+
+.online {
+    font-size: 9px;
+    color: var(--green);
+}
+
+.online span,
+.welcome span {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+    margin-right: 5px;
+}
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero {
+    min-height: 680px;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 45px;
+    padding: 80px 8%;
+}
+
+.welcome {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+
+/* S INITIAL ABOVE NAME */
+
+.initial-animation {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    font-family: 'Orbitron';
+    font-size: 75px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 0 25px var(--green);
+}
+
+.initial-animation span {
+    opacity: 0;
+    transform: translateY(30px) scale(.5);
+    display: inline-block;
+}
+
+.initial-animation span.initial-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: .8s;
+    animation: initialElectric .8s;
+}
+
+
+/* FULL NAME BELOW S */
+
+.full-name {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    white-space: nowrap;
+    font-family: 'Orbitron';
+    font-size: clamp(18px, 3.5vw, 43px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--green);
+    text-shadow:
+        0 0 10px var(--green),
+        0 0 25px #526b25;
+}
+
+.full-name span {
+    opacity: 0;
+    display: inline-block;
+    transform: translateY(25px) scale(.6);
+}
+
+.full-name span.letter-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: .4s;
+    animation: letterFlash .6s;
+}
+
+.name-line {
+    width: 0;
+    height: 3px;
+    margin-top: 14px;
+    background: linear-gradient(
+        90deg,
+        var(--green),
+        var(--olive-light),
+        var(--green)
+    );
+    box-shadow: 0 0 15px var(--green);
+    animation: lineGrow 2s 4s forwards;
+}
+
+.role {
+    margin-top: 25px;
+    color: var(--olive-light);
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.description {
+    margin-top: 18px;
+    max-width: 440px;
+    color: #a4b5a8;
+    font-size: 12px;
+    line-height: 2;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.primary-btn,
+.outline-btn {
+    padding: 14px 22px;
+    text-decoration: none;
+    font-size: 9px;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: .4s;
+}
+
+.primary-btn {
+    background: var(--green);
+    color: #071006;
+    font-weight: 800;
+    box-shadow: 0 0 20px #aaff6544;
+}
+
+.outline-btn {
+    color: white;
+    border: 1px solid var(--olive);
+}
+
+.primary-btn:hover,
+.outline-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px var(--green);
+}
+
+.hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 55px;
+    color: #9aa58c;
+    font-family: 'Orbitron';
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   SQUARE PHOTO + SQUARE ROTATING RINGS
+================================= */
+
+.hero-right {
+    min-height: 480px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.profile-frame {
+    position: relative;
+    z-index: 4;
+    width: min(260px, 70vw);
+    aspect-ratio: 1 / 1;
+    padding: 8px;
+    border: 2px solid var(--olive-light);
+    background: #030a07;
+    box-shadow:
+        0 0 25px #aaff6544,
+        inset 0 0 15px #aaff6522;
+    overflow: hidden;
+}
+
+.profile-frame img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #aaff6588;
+}
+
+
+/* Square rings - not circular rings */
+
+.square-ring {
+    position: absolute;
+    border: 2px solid transparent;
+    pointer-events: none;
+}
+
+.square-ring-one {
+    width: 300px;
+    height: 300px;
+    border-top-color: var(--green);
+    border-right-color: var(--olive-light);
+    box-shadow: 0 0 18px #aaff6544;
+    animation: squareRotate 7s linear infinite;
+}
+
+.square-ring-two {
+    width: 345px;
+    height: 345px;
+    border-bottom-color: var(--olive);
+    border-left-color: var(--green);
+    border-style: dashed;
+    opacity: .75;
+    animation: squareRotateBack 11s linear infinite;
+}
+
+.square-ring-three {
+    width: 390px;
+    height: 390px;
+    border-top: 1px dashed var(--olive-light);
+    border-bottom: 1px dashed var(--green);
+    opacity: .4;
+    animation: squareRotate 16s linear infinite;
+}
+
+.profile-caption {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--green);
+    font-family: 'Orbitron';
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =================================
+   CONTENT SECTIONS
+================================= */
+
+.content-section {
+    padding: 90px 10%;
+    scroll-margin-top: 35px;
+}
+
+.section-title {
+    margin-bottom: 38px;
+}
+
+.section-title > span,
+.goal-section > span {
+    font-family: 'Orbitron';
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--green);
+}
+
+.section-title h2 {
+    margin-top: 12px;
+    font-family: 'Orbitron';
+    font-size: clamp(27px, 5vw, 43px);
+}
+
+.section-title h2 b {
+    color: var(--green);
+}
+
+
+/* =================================
+   INFORMATION CARDS
+================================= */
+
+.info-card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 17px;
+    border: 1px solid #aaff6530;
+    border-radius: 10px;
+    background: linear-gradient(120deg, #101b13, #07100c);
+    transition: .4s;
+}
+
+.info-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 0 25px #aaff6522;
+    transform: translateY(-3px);
+}
+
+.info-card summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.info-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.number {
+    color: var(--olive-light);
+    font-family: 'Orbitron';
+    font-size: 12px;
+}
+
+.info-card summary strong {
+    flex: 1;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.plus {
+    color: var(--green);
+    font-size: 23px;
+    transition: .4s;
+}
+
+.info-card[open] .plus {
+    transform: rotate(45deg);
+    color: var(--olive-light);
+}
+
+.card-content {
+    padding: 22px 25px;
+    border-top: 1px solid #aaff6530;
+    color: #b4c4b8;
+    font-size: 12px;
+    line-height: 2.2;
+    animation: contentOpen .4s ease;
+}
+
+.card-content h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+}
+
+
+/* LEFT-TO-RIGHT WHITE SIGNING SHINE */
+
+.info-card::after {
+    content: "";
+    position: absolute;
+    top: -60%;
+    left: -120%;
+    width: 45%;
+    height: 220%;
+    transform: rotate(20deg);
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.9),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.info-card.touch-effect::after {
+    animation: signingShine .85s ease forwards;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 17px;
+}
+
+.card-grid .info-card {
+    margin: 0;
+}
+
+
+/* =================================
+   FUTURE GOAL
+================================= */
+
+.goal-section {
+    padding: 110px 10%;
+    text-align: center;
+    background: radial-gradient(
+        ellipse at center,
+        #19321b,
+        #030605 75%
+    );
+}
+
+.goal-section h2 {
+    margin-top: 20px;
+    font-family: 'Orbitron';
+    font-size: clamp(32px, 7vw, 65px);
+    letter-spacing: 2px;
+}
+
+.olive-text {
+    color: var(--olive-light);
+    text-shadow: 0 0 20px #aaff6577;
+}
+
+.goal-section p {
+    margin-top: 25px;
+    color: #a4b5a8;
+    font-size: 12px;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #aaff6522;
+}
+
+.footer-logo {
+    color: var(--green);
+}
+
+footer p {
+    margin-top: 15px;
+    color: #819286;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.copyright {
+    color: #526257;
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes scan {
+    from { top: 0; }
+    to { top: 100%; }
+}
+
+@keyframes shine {
+    0%, 25% { transform: translateX(-110%); }
+    70%, 100% { transform: translateX(110%); }
+}
+
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: scale(.7) rotateY(25deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% { margin-top: 0; }
+    50% { margin-top: -10px; }
+}
+
+@keyframes pulse {
+    50% { opacity: .4; }
+}
+
+@keyframes initialElectric {
+    0% {
+        filter: brightness(4);
+        text-shadow: 0 0 40px white;
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+@keyframes letterFlash {
+    0% {
+        filter: brightness(4);
+        text-shadow: 0 0 30px white;
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+@keyframes lineGrow {
+    to { width: 100%; }
+}
+
+@keyframes squareRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes squareRotateBack {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes contentOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes signingShine {
+    from { left: -120%; }
+    to { left: 160%; }
+}
+
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media(max-width: 850px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 8px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 70px 7%;
+        text-align: center;
+    }
+
+    .initial-animation {
+        justify-content: center;
+    }
+
+    .full-name {
+        justify-content: center;
+        font-size: clamp(17px, 5vw, 36px);
+    }
+
+    .name-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .buttons,
+    .hero-tags {
+        justify-content: center;
+    }
+
+    .hero-right {
+        margin-top: 40px;
+    }
+
+    .content-section {
+        padding: 70px 7%;
+    }
+}
+
+@media(max-width: 520px) {
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    nav a {
+        font-size: 7px;
+    }
+
+    .online {
+        font-size: 8px;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .initial-animation {
+        font-size: 65px;
+    }
+
+    .full-name {
+        font-size: clamp(15px, 4.8vw, 23px);
+        letter-spacing: 0;
+    }
+
+    .square-ring-one {
+        width: 260px;
+        height: 260px;
+    }
+
+    .square-ring-two {
+        width: 295px;
+        height: 295px;
+    }
+
+    .square-ring-three {
+        width: 330px;
+        height: 330px;
+    }
+
+    .profile-frame {
+        width: 210px;
+    }
+
+    .hero-right {
+        min-height: 390px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card summary {
+        padding: 20px 15px;
+        gap: 12px;
+    }
+
+    .info-card summary strong {
+        font-size: 10px;
+    }
+
+    .hero-tags {
+        gap: 12px;
+        font-size: 7px;
+    }
+
+}
